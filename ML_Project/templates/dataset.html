@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="dataset-info">
+    <div class="header-section">
+        <h1>Dataset Overview</h1>
+        <p>Information about the training data used for the model.</p>
+    </div>
+
+    <div class="cards-grid">
+        <div class="card">
+            <h2>Dataset Name</h2>
+            <p class="highlight">{{ info.name }}</p>
+        </div>
+        <div class="card">
+            <h2>Total Rows</h2>
+            <p class="highlight">{{ info.rows_raw }}</p>
+        </div>
+        <div class="card">
+            <h2>Cleaned Rows</h2>
+            <p class="highlight">{{ info.rows_clean }}</p>
+        </div>
+        <div class="card">
+            <h2>Input Features</h2>
+            <p class="highlight">{{ info.features }}</p>
+        </div>
+        <div class="card">
+            <h2>Target Variable</h2>
+            <p class="highlight">{{ info.target }}</p>
+        </div>
+    </div>
+
+    <div class="info-card" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow);">
+        <h3>Important Note</h3>
+        <p>The model was trained on historical insurance claim data. It handles class imbalance and multiple categorical
+            features.</p>
+    </div>
+</section>
+{% endblock %}

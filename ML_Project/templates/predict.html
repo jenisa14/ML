@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="prediction">
+    <div class="header-section">
+        <h1>Fraud Prediction</h1>
+        <p>Enter claim details below to predict the likelihood of fraud.</p>
+    </div>
+
+    <div class="card" style="max-width: 800px; margin: 0 auto;">
+        <form action="{{ url_for('predict') }}" method="POST">
+            <div class="form-grid">
+                {% if columns %}
+                {% for col in columns %}
+                <div class="form-group">
+                    <label for="{{ col }}">{{ col.replace('_', ' ').title() }}</label>
+                    <input type="text" id="{{ col }}" name="{{ col }}" required>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>Error: Model columns not loaded. Please ensure the backend is set up correctly.</p>
+                {% endif %}
+            </div>
+            <button type="submit" class="submit-btn" {% if not columns %}disabled{% endif %}>Predict Fraud</button>
+        </form>
+    </div>
+
+    {% if prediction %}
+    <div class="result-card">
+        <h2>Prediction Result</h2>
+        <h1 class="highlight {{ prediction }}">{{ prediction }}</h1>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

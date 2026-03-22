@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="dashboard">
+    <div class="header-section">
+        <h1>System Overview</h1>
+        <p>Advanced Machine Learning solution for detecting fraudulent insurance claims.</p>
+    </div>
+
+    <div class="cards-grid">
+        <div class="card">
+            <h2>Algorithm</h2>
+            <p class="highlight">Logistic Regression</p>
+        </div>
+        <div class="card">
+            <h2>Model Type</h2>
+            <p class="highlight">Binary Classification</p>
+        </div>
+        <div class="card">
+            <h2>Regularization</h2>
+            <p class="highlight">L1 & L2</p>
+        </div>
+        <div class="card">
+            <h2>Accuracy</h2>
+            <p class="highlight">~85%</p> <!-- Placeholder, usually you'd pass this from backend -->
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h3>About the Model</h3>
+        <p>This model uses historical claim data to identify patterns indicative of fraud. It leverages scikit-learn for
+            unified data processing and prediction.</p>
+    </div>
+</section>
+{% endblock %}
